@@ -5,7 +5,6 @@ body {
   color: white;
 }
 
-/* HEADER */
 header {
   text-align: center;
   padding: 30px;
@@ -22,15 +21,12 @@ header {
   opacity: 0.7;
 }
 
-/* HERO */
 .hero {
   text-align: center;
   padding: 20px;
   font-size: 16px;
-  opacity: 0.9;
 }
 
-/* MENU */
 .menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -42,8 +38,8 @@ header {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,215,0,0.15);
   border-radius: 12px;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
   transition: 0.3s;
 }
 
@@ -69,27 +65,14 @@ header {
   font-weight: bold;
 }
 
-/* FOOTER */
 .footer {
   text-align: center;
   padding: 40px 20px;
   border-top: 1px solid rgba(255,215,0,0.2);
 }
 
-.footer h2 {
-  color: gold;
-}
-
 .slogan {
-  margin-top: 15px;
+  margin-top: 10px;
   font-style: italic;
   opacity: 0.7;
-}
-
-.footer-img {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 900px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,215,0,0.2);
 }
