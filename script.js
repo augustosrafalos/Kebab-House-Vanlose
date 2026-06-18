@@ -1,22 +1,37 @@
 let cart = [];
 
-function add(name, price, btn) {
+function addItem(name, price) {
   cart.push({ name, price });
-  save();
-  animate(btn);
+  updateCart();
 }
 
-function save() {
-  localStorage.setItem("cart", JSON.stringify(cart));
+function updateCart() {
+  document.getElementById("cart-count").innerText = cart.length;
+
+  let items = document.getElementById("cart-items");
+  items.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price;
+    items.innerHTML += `<p>${item.name} - ${item.price} kr</p>`;
+  });
+
+  document.getElementById("total").innerText = total;
 }
 
-function goCheckout() {
-  window.location.href = "checkout.html";
+function openCart() {
+  document.getElementById("cart").style.display = "block";
 }
 
-function animate(btn) {
-  btn.innerText = "Tilføjet ✓";
-  setTimeout(() => {
-    btn.innerText = btn.getAttribute("data-text") || "Tilføj";
-  }, 800);
+function closeCart() {
+  document.getElementById("cart").style.display = "none";
+}
+
+function checkout() {
+  alert("Bestilling sendt 🚀");
+  cart = [];
+  updateCart();
+  closeCart();
 }
