@@ -1,75 +1,291 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kebab House</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebab House</title>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap)" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Sej font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo::before {
+            content: "🥙 ";
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .hero h1 {
+            color: #d4af37;
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .hero-tagline {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .hero-tagline span {
+            margin: 0 8px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            padding: 20px 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-item-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .menu-item .price {
+            color: #d4af37;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            padding: 50px 20px;
+            margin-top: 30px;
+        }
+
+        .info-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .info-content {
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info-content h2 {
+            color: #d4af37;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .info-content h2::before {
+            content: "📍 ";
+        }
+
+        .info-content p {
+            color: #ccc;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .info-content .phone::before {
+            content: "📞 ";
+        }
+
+        .info-content h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin: 20px 0 8px;
+        }
+
+        .info-content h3::before {
+            content: "🕐 ";
+        }
+
+        .info-content .hours {
+            color: #d4af37;
+        }
+
+        .info-content .slogan {
+            color: #888;
+            font-style: italic;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+
+        .info-image {
+            flex: 0 0 320px;
+        }
+
+        .info-image img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .info-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .info-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">KEBAB HOUSE</div>
-</header>
+    <header>
+        <div class="logo">KEBAB HOUSE</div>
+    </header>
 
-<section class="hero">
-  <h1>Street food gjort premium</h1>
-  <p>🔥 Frisklavet • 🌯 Smag der rammer • 🖤 Serveret med stil</p>
-</section>
+    <section class="hero">
+        <h1>Street food gjort premium</h1>
+        <p class="hero-tagline">
+            <span>🔥 Frisklavet</span> • 
+            <span>🌯 Smag der rammer</span> • 
+            <span>💎 Serveret med stil</span>
+        </p>
+    </section>
 
-<section class="menu">
+    <section class="menu-grid">
+        <div class="menu-item">
+            <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/proxy/OIrpxmHXNvPnP0d2dsHoZR6e6jQMZdm_-zmXYmQLBazsaSjR2NhR2khK7AavtR8Jh8DWjPcp2CLBWhZBSwofylHLJNqc5cQb2YvLvI-DxOeFEEmyYRxtUHtRer0B0hByF-y_IWjRtkI2mT0OK-wBRKIahDLouw=s680-w680-h510-rw)" alt="German Kebab">
+            <div class="menu-item-info">
+                <h3>German Kebab</h3>
+                <p class="price">79 kr</p>
+            </div>
+        </div>
 
-  <!-- German -->
-  <div class="card">
-    <img src="https://lh3.googleusercontent.com/proxy/OIrpxmHXNvPnP0d2dsHoZR6e6jQMZdm_-zmXYmQLBazsaSjR2NhR2khK7AavtR8Jh8DWjPcp2CLBWhZBSwofylHLJNqc5cQb2YvLvI-DxOeFEEmyYRxtUHtRer0B0hByF-y_IWjRtkI2mT0OK-wBRKIahDLouw=s680-w680-h510-rw">
-    <h2>German Kebab</h2>
-    <span class="price">79 kr</span>
-  </div>
+        <div class="menu-item">
+            <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/proxy/T-fTCO9v_y_CFdgIub8uGOgRlXX72eK8X2Y0PQ8zGH2voj83Ucku973oHL_oH12jMdm6srO8-UKDLxN2spiBYoqhqsJCiMtgSuQrPU2KFd-Ka6ex067Vi8N4oFiqE6ZMXcC8DC8H_KDs7CGLdmVTzfD3BuOuFw=s680-w680-h510-rw)" alt="Bowl">
+            <div class="menu-item-info">
+                <h3>Bowl</h3>
+                <p class="price">89 kr</p>
+            </div>
+        </div>
 
-  <!-- Pitabrød -->
-  <div class="card">
-    <img src="https://lh3.googleusercontent.com/proxy/T-fTCO9v_y_CFdgIub8uGOgRlXX72eK8X2Y0PQ8zGH2voj83Ucku973oHL_oH12jMdm6srO8-UKDLxN2spiBYoqhqsJCiMtgSuQrPU2KFd-Ka6ex067Vi8N4oFiqE6ZMXcC8DC8H_KDs7CGLdmVTzfD3BuOuFw=s680-w680-h510-rw">
-    <h2>Pitabrød</h2>
-    <span class="price">45 kr</span>
-  </div>
+        <div class="menu-item">
+            <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/proxy/tHK_1QgJk1iR8YYVcSaLalQagRHHGtqbScjLkDP_RHC4BwsJBUytOZtB91VzIJajOw5QyIjaUaCFsn5DWpIHvLB6kL9_zfRWDUKN-zQvASY85032KPFJUWNLz9Q13GJtRn4lsyPIj0VBZaREu1T_a2biBGsGA2Y=s680-w680-h510-rw)" alt="Kebab Box">
+            <div class="menu-item-info">
+                <h3>Kebab Box</h3>
+                <p class="price">69 kr</p>
+            </div>
+        </div>
 
-  <!-- Durum -->
-  <div class="card">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEsp8qY0r2-AijM3lFyeeWlQeKqmNI2wMRjp5Vm-NXVdT5hl_qUvbJZS_7abMnuATqQQLzifFXoSbK3uhbG16rgqHFDJAz9VGmJmZ2BOGDcfNRNSTdWI7juj-w8y2CAMGq780Li=s680-w680-h510-rw">
-    <h2>Durum</h2>
-    <span class="price">69 kr</span>
-  </div>
+        <div class="menu-item">
+            <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/proxy/ILJhnpYUBh6vSIVs3cFTzSv32jTpAZo9VcOsROmpFW--Khf-vbUAJmpdr3wyx4tX8zugAhxjp0czwLJmWKno5km5z1lbiTTIj0fORaW0lhPwRykxXV5af1Ku-F1CT5pngNo1GVG4uabZv8trnsBKXjhvrvLH3A=s680-w680-h510-rw)" alt="Durum">
+            <div class="menu-item-info">
+                <h3>Durum</h3>
+                <p class="price">69 kr</p>
+            </div>
+        </div>
 
-  <!-- Bowl -->
-  <div class="card">
-    <img src="https://lh3.googleusercontent.com/proxy/tHK_1QgJk1iR8YYVcSaLalQagRHHGtqbScjLkDP_RHC4BwsJBUytOZtB91VzIJajOw5QyIjaUaCFsn5DWpIHvLB6kL9_zfRWDUKN-zQvASY85032KPFJUWNLz9Q13GJtRn4lsyPIj0VBZaREu1T_a2biBGsGA2Y=s680-w680-h510-rw">
-    <h2>Bowl</h2>
-    <span class="price">89 kr</span>
-  </div>
+        <div class="menu-item">
+            <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/proxy/HdToOA2DUdmjdgAlm9v3lr0-Wr8iTOpanNP9OSPuIcgKa_zTKPa6a6sUkK4C8Wp_pZAS5g6Xz-OUWf1uR3dIsPoznPyUS6J9PclYoTZbCYwGLm28X0lYYO-jZO4oZ-cWPDBPoqVNCCOR6qaJ4halVo5QVLapcg=s680-w680-h510-rw)" alt="Pitabrød">
+            <div class="menu-item-info">
+                <h3>Pitabrød</h3>
+                <p class="price">45 kr</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Box -->
-  <div class="card">
-    <img src="https://lh3.googleusercontent.com/proxy/ILJhnpYUBh6vSIVs3cFTzSv32jTpAZo9VcOsROmpFW--Khf-vbUAJmpdr3wyx4tX8zugAhxjp0czwLJmWKno5km5z1lbiTTIj0fORaW0lhPwRykxXV5af1Ku-F1CT5pngNo1GVG4uabZv8trnsBKXjhvrvLH3A=s680-w680-h510-rw">
-    <h2>Kebab Box</h2>
-    <span class="price">69 kr</span>
-  </div>
-
-</section>
-
-<section class="footer">
-  <h2>📍 Kebab House</h2>
-  <p>Ålekistevej 82, 2720 København</p>
-  <p>📞 31 53 16 24</p>
-
-  <h3>🕒 Åbningstider</h3>
-  <p>Alle dage: 11:00 – 21:00</p>
-
-  <p class="slogan">“Når street food bliver til oplevelse”</p>
-</section>
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-content">
+                <h2>Kebab House</h2>
+                <p>Alekistevej 82, 2720 København</p>
+                <p class="phone">31 53 16 24</p>
+                
+                <h3>Åbningstider</h3>
+                <p>Alle dage: <span class="hours">11:00 – 21:00</span></p>
+                
+                <p class="slogan">"Når street food bliver til oplevelse"</p>
+            </div>
+            
+            <div class="info-image">
+                <img src="[lh3.googleusercontent.com](https://lh3.googleusercontent.com/gps-cs-s/APNQkAEsp8qY0r2-AijM3lFyeeWlQeKqmNI2wMRjp5Vm-NXVdT5hl_qUvbJZS_7abMnuATqQQLzifFXoSbK3uhbG16rgqHFDJAz9VGmJmZ2BOGDcfNRNSTdWI7juj-w8y2CAMGq780Li=s680-w680-h510-rw)" alt="Kebab House">
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
+
